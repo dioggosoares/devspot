@@ -1,0 +1,6 @@
+export enum LIMITS {
+  // STATS
+  FOLLOWERS = 10000,
+  FOLLOWING = 10000,
+  REPOS = 10000,
+}

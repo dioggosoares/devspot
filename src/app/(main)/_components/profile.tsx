@@ -1,17 +1,16 @@
 'use client'
 
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { useQuery } from '@tanstack/react-query'
-import { GitFork, SquareArrowOutUpRight, Users } from 'lucide-react'
+import { SquareArrowOutUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { UserData } from '@/@types/user'
 import { Button } from '@/components/ui/button'
 import { fetcher } from '@/utils/fetcher'
-import { addSufixForThousands } from '@/utils/formatter'
 
 import { ProfileSkeleton } from './profile-skeleton'
+import { ProfileStats } from './profile-stats'
 
 interface ProfileProps {
   username: string
@@ -55,39 +54,7 @@ export function Profile({ username }: ProfileProps) {
               <p className="text-sm">{profileData.bio}</p>
             </div>
 
-            <div className="flex w-full items-center gap-6">
-              <div className="flex items-center gap-2">
-                <GitHubLogoIcon />
-                <span className="text-sm">@{profileData.login}</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Users className="h-4 w-4" />
-                <span className="text-sm">
-                  <span className="font-bold">
-                    {addSufixForThousands(profileData.followers)}
-                  </span>{' '}
-                  seguidores
-                </span>
-                -
-                <span className="text-sm">
-                  <span className="font-bold">
-                    {addSufixForThousands(profileData.following)}
-                  </span>{' '}
-                  seguindo
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <GitFork className="h-4 w-4" />
-                <span className="text-sm">
-                  <span className="font-bold">
-                    {addSufixForThousands(profileData.public_repos)}
-                  </span>{' '}
-                  repos
-                </span>
-              </div>
-            </div>
+            <ProfileStats profileData={profileData} />
           </div>
         </div>
       )}

@@ -2,71 +2,49 @@ export function addThousandSeparator(value: string | number) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
-export function twoDecimalPlaces(str: string) {
-  if (str === null || str === undefined) {
+export function twoDecimalPlaces(value: string) {
+  if (value === null || value === undefined) {
     return null
   }
-  if (typeof str === 'string') {
-    if (str?.indexOf('.') < 0) {
-      return str
+  if (typeof value === 'string') {
+    if (value?.indexOf('.') < 0) {
+      return value
     }
-    return str.slice(0, str.indexOf('.') + 3).replace('.', ',')
+    return value.slice(0, value.indexOf('.') + 3).replace('.', ',')
   }
 }
 
-export const addSufixForThousands = (num: number, decimal = false) => {
+export function addSufixForThousands(num: number, decimal = false) {
   if (num === null || num === 0) {
     return '0'
   }
   num = parseFloat(String(num))
-  // se não pode ser decimal.
+
   if (decimal === false) {
     num = Math.trunc(num)
   }
-  // as mascar de fato dos números
+
   if (num <= 9999) {
-    // 0 até 9.999 : Apresentar todos os números.
-    // Quando houver decimal: Apresentar todos os números com 2 casas decimais  (Apresentar mouseover com valor)
+    let value = num.toLocaleString('pt-BR')
 
-    let temp = num.toLocaleString('pt-BR')
-    if (temp.includes('.')) {
-      temp = temp.substring(0, temp.toString().search('\\,') + 3)
+    if (value.includes(',')) {
+      value = value.substring(0, value.toString().search('\\,') + 3)
     }
-    return temp
-  } else {
-    if (num <= 999999) {
-      let temp = num.toLocaleString('pt-BR')
-      temp = temp.substring(0, temp.toString().search('\\.') + 2)
-      return temp + 'k'
-    } else {
-      if (num <= 999999999) {
-        let temp = num.toLocaleString('pt-BR')
-        temp = temp.substring(0, temp.toString().search('\\.') + 2)
-        temp = temp.replace('.', ',')
-        let unidade = 'm'
-        if (temp === '1') {
-          unidade = 'm'
-        }
-        return temp + unidade
-      }
-    }
+
+    return value
   }
-}
 
-export function toCurrency(value: number) {
-  const formattedCurrency = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(value)
+  if (num <= 999999) {
+    let value = num.toLocaleString('pt-BR')
 
-  return formattedCurrency
-}
+    value = value.substring(0, value.toString().search('\\.') + 2)
+    return value + 'k'
+  }
 
-export function toMonetaryFormat(value: number) {
-  const formattedMonetary = new Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value)
+  if (num <= 999999999) {
+    let value = num.toLocaleString('pt-BR')
 
-  return formattedMonetary
+    value = value.substring(0, value.toString().search('\\.') + 2)
+    return value + 'm'
+  }
 }
