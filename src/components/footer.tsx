@@ -5,8 +5,6 @@ export function Footer() {
         className="mx-auto flex w-full items-center justify-center
         md:max-w-screen-2xl"
       >
-        {/* <Logo /> */}
-
         <div
           className="flex w-full items-center justify-between space-x-4 text-xs
           md:block md:w-auto"

@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { QueryProvider } from '@/providers/query-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body className={`${inter.className} bg-base-800 text-zinc-50`}>
         <div className="h-full">
           <Header />
-          <main className="relative">{children}</main>
+          <QueryProvider>
+            <main className="relative">{children}</main>
+          </QueryProvider>
           <Footer />
         </div>
       </body>

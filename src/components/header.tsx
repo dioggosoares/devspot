@@ -15,7 +15,7 @@ export function Header() {
         <div
           className="relative z-20 flex w-full max-w-7xl items-center
           justify-center bg-gradient-to-b from-slate-800 to-slate-500
-          bg-clip-text py-8 pb-24 text-4xl font-bold text-transparent
+          bg-clip-text py-8 text-4xl font-bold text-transparent
           sm:text-7xl"
         >
           <Logo />
