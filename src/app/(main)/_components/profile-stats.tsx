@@ -18,22 +18,22 @@ interface ProfileStats {
 
 export function ProfileStats({ profileData }: ProfileStats) {
   return (
-    <div className="flex w-full items-center gap-6">
+    <div className="flex w-full flex-col gap-4 md:flex-row md:gap-6">
       <div className="flex items-center gap-2">
         <GitHubLogoIcon />
         <Link href={profileData.html_url || ''} target="_blank">
-          <span className="text-sm">@{profileData.login}</span>
+          <span className="text-xs lg:text-sm">@{profileData.login}</span>
         </Link>
       </div>
 
       <div className="flex items-center gap-2">
         <Users className="h-4 w-4" />
-        <span className="text-sm">
+        <span className="text-xs lg:text-sm">
           <span className="font-bold">
             {profileData.followers > LIMITS.FOLLOWERS ? (
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger className="cursor-default">
                     {addSufixForThousands(profileData.followers)}
                   </TooltipTrigger>
                   <TooltipContent>
@@ -48,12 +48,12 @@ export function ProfileStats({ profileData }: ProfileStats) {
           seguidores
         </span>
         -
-        <span className="text-sm">
+        <span className="text-xs lg:text-sm">
           <span className="font-bold">
             {profileData.following > LIMITS.FOLLOWING ? (
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger className="cursor-default">
                     {addSufixForThousands(profileData.following)}
                   </TooltipTrigger>
                   <TooltipContent>
@@ -71,12 +71,12 @@ export function ProfileStats({ profileData }: ProfileStats) {
 
       <div className="flex items-center gap-2">
         <GitFork className="h-4 w-4" />
-        <span className="text-sm">
+        <span className="text-xs lg:text-sm">
           <span className="font-bold">
             {profileData.public_repos > LIMITS.REPOS ? (
               <TooltipProvider>
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger className="cursor-default">
                     {addSufixForThousands(profileData.public_repos)}
                   </TooltipTrigger>
                   <TooltipContent>

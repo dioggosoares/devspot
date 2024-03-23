@@ -1,6 +1,7 @@
 'use client'
 
 import { Star } from 'lucide-react'
+import Link from 'next/link'
 import colors from 'tailwindcss/colors'
 
 import { Repo } from '@/@types/repo'
@@ -21,6 +22,7 @@ import {
 import { LIMITS } from '@/constants/general'
 import { cn } from '@/lib/utils'
 import { addSufixForThousands, addThousandSeparator } from '@/utils/formatter'
+import { shortenString } from '@/utils/shortenString'
 
 interface CardRepoProps {
   repositories: Repo[]
@@ -29,8 +31,8 @@ interface CardRepoProps {
 export function CardRepo({ repositories }: CardRepoProps) {
   return (
     <div
-      className="grid max-h-[32rem] grid-cols-1 gap-2 overflow-y-auto px-3
-      pb-7 lg:grid-cols-2 lg:px-0 lg:pr-3"
+      className="grid max-h-[32rem] grid-cols-1 gap-2 overflow-y-auto pb-7 pr-3
+      md:grid-cols-2 lg:grid-cols-3"
     >
       {repositories?.map((item) => {
         return (
@@ -38,17 +40,31 @@ export function CardRepo({ repositories }: CardRepoProps) {
             <CardHeader className="p-6">
               <CardTitle className="text-zinc-50">
                 <div className="flex w-full items-center justify-between">
-                  <h1 className="text-lg">{item.name}</h1>
+                  <h1 className="text-base md:text-lg">
+                    {item.name.length > LIMITS.TITLE_CHARS ? (
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger className="cursor-default text-base md:text-lg">
+                            {shortenString(item.name, LIMITS.TITLE_CHARS)}
+                          </TooltipTrigger>
+                          <TooltipContent>{item.name}</TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    ) : (
+                      item.name
+                    )}
+                  </h1>
+
                   <div className="flex items-center">
                     <Star
                       fill={colors.amber['500']}
                       className="mr-2 h-4 w-4 text-amber-500"
                     />
-                    <span className="text-base font-semibold">
+                    <span className="text-sm font-semibold md:text-base">
                       {item.stargazers_count > LIMITS.STARS ? (
                         <TooltipProvider>
                           <Tooltip>
-                            <TooltipTrigger>
+                            <TooltipTrigger className="cursor-default text-sm md:text-base">
                               {addSufixForThousands(item.stargazers_count)}
                             </TooltipTrigger>
                             <TooltipContent>
@@ -64,7 +80,9 @@ export function CardRepo({ repositories }: CardRepoProps) {
                 </div>
               </CardTitle>
               <CardDescription className="min-h-20">
-                {item.description ?? 'Sem descrição'}
+                {item.description
+                  ? shortenString(item.description, 70)
+                  : 'Sem descrição'}
               </CardDescription>
             </CardHeader>
             <CardFooter className="p-3">
@@ -76,6 +94,9 @@ export function CardRepo({ repositories }: CardRepoProps) {
                       'text-zinc-400/50': item.language === null,
                       'text-yellow-500': item.language === 'JavaScript',
                       'text-blue-600': item.language === 'TypeScript',
+                      'text-green-800': item.language === 'Java',
+                      'text-purple-800': item.language === 'C++',
+                      'text-rose-500': item.language === 'Dart',
                       'text-orange-500': item.language === 'HTML',
                       'text-sky-500': item.language === 'CSS',
                     })}
@@ -83,8 +104,13 @@ export function CardRepo({ repositories }: CardRepoProps) {
                     {item.language ?? 'none'}
                   </span>
                 </span>
-                <Button className="text-zinc-50" variant="ghost" size="sm">
-                  Ver mais
+                <Button
+                  className="text-zinc-50"
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                >
+                  <Link href={`/repo/dioggosoares/${item.name}`}>Ver mais</Link>
                 </Button>
               </div>
             </CardFooter>
