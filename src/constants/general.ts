@@ -4,3 +4,9 @@ export enum LIMITS {
   FOLLOWING = 10000,
   REPOS = 10000,
 }
+
+export enum EXTERNAL_URL {
+  // API
+  GITHUB_USER = 'https://api.github.com/users/',
+  GITHUB_REPOS = 'https://api.github.com/repos/',
+}

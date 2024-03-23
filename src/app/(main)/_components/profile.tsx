@@ -4,9 +4,12 @@ import { useQuery } from '@tanstack/react-query'
 import { SquareArrowOutUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 import { UserData } from '@/@types/user'
 import { Button } from '@/components/ui/button'
+import { EXTERNAL_URL } from '@/constants/general'
+import { env } from '@/env'
 import { fetcher } from '@/utils/fetcher'
 
 import { ProfileSkeleton } from './profile-skeleton'
@@ -17,7 +20,7 @@ interface ProfileProps {
 }
 
 export function Profile({ username }: ProfileProps) {
-  const url = `https://api.github.com/users/${username}`
+  const url = EXTERNAL_URL.GITHUB_USER + username
 
   const { data: profileData, isLoading: isLoadingProfile } = useQuery<UserData>(
     {
@@ -25,6 +28,8 @@ export function Profile({ username }: ProfileProps) {
       queryFn: () => fetcher(url),
     },
   )
+
+  if (profileData?.message) notFound()
 
   return (
     <>

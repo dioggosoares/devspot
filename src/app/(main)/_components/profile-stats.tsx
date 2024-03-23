@@ -21,7 +21,7 @@ export function ProfileStats({ profileData }: ProfileStats) {
     <div className="flex w-full items-center gap-6">
       <div className="flex items-center gap-2">
         <GitHubLogoIcon />
-        <Link href={profileData.html_url} target="_blank">
+        <Link href={profileData.html_url || ''} target="_blank">
           <span className="text-sm">@{profileData.login}</span>
         </Link>
       </div>

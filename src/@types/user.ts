@@ -7,4 +7,5 @@ export interface UserData {
   following: number
   public_repos: number
   html_url: string
+  message?: string
 }
