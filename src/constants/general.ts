@@ -3,6 +3,7 @@ export enum LIMITS {
   FOLLOWERS = 10000,
   FOLLOWING = 10000,
   REPOS = 10000,
+  STARS = 10000,
 }
 
 export enum EXTERNAL_URL {

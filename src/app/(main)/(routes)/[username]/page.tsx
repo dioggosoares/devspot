@@ -8,6 +8,7 @@ import {
 
 import { CardRepo } from '../../_components/card-repo'
 import { Profile } from '../../_components/profile'
+import { Repositories } from '../../_components/repositories'
 
 interface HomeProps {
   params: {
@@ -22,26 +23,7 @@ export default function Home({ params }: HomeProps) {
         <Profile username={params.username} />
       </div>
       <div className="flex w-full flex-col gap-6 px-3 lg:px-0">
-        <div className="flex w-full items-center justify-between px-3 lg:px-0">
-          <h1 className="text-lg font-semibold text-brand-blue">
-            Repositórios
-          </h1>
-
-          <Select defaultValue="">
-            <SelectTrigger
-              className="col-span-2 h-8 w-auto border-brand-blue/40
-              bg-field-900 ring-offset-brand-blue lg:w-[11.25rem]"
-            >
-              <SelectValue placeholder="Qtd. de estrelas" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="pending">Crescente</SelectItem>
-              <SelectItem value="canceled">Decrescente</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <CardRepo username={params.username} />
+        <Repositories username={params.username} />
       </div>
     </div>
   )

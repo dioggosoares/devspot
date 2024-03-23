@@ -2,7 +2,7 @@ import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { GitFork, Users } from 'lucide-react'
 import Link from 'next/link'
 
-import { UserData } from '@/@types/user'
+import { User } from '@/@types/user'
 import {
   Tooltip,
   TooltipContent,
@@ -13,7 +13,7 @@ import { LIMITS } from '@/constants/general'
 import { addSufixForThousands, addThousandSeparator } from '@/utils/formatter'
 
 interface ProfileStats {
-  profileData: UserData
+  profileData: User
 }
 
 export function ProfileStats({ profileData }: ProfileStats) {

@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { UserData } from '@/@types/user'
+import { User } from '@/@types/user'
 import { Button } from '@/components/ui/button'
 import { EXTERNAL_URL } from '@/constants/general'
 import { env } from '@/env'
@@ -22,12 +22,10 @@ interface ProfileProps {
 export function Profile({ username }: ProfileProps) {
   const url = EXTERNAL_URL.GITHUB_USER + username
 
-  const { data: profileData, isLoading: isLoadingProfile } = useQuery<UserData>(
-    {
-      queryKey: ['profile'],
-      queryFn: () => fetcher(url),
-    },
-  )
+  const { data: profileData, isLoading: isLoadingProfile } = useQuery<User>({
+    queryKey: ['profile'],
+    queryFn: () => fetcher(url),
+  })
 
   if (profileData?.message) notFound()
 
@@ -43,6 +41,7 @@ export function Profile({ username }: ProfileProps) {
             width={128}
             height={128}
             className="rounded-md"
+            priority
           />
           <div className="flex w-full flex-col gap-7">
             <div className="flex flex-col gap-2">
