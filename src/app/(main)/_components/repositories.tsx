@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { EXTERNAL_URL } from '@/constants/general'
-import { useSortedData } from '@/hooks/useSortedData'
+import { useSortedData } from '@/store/useSortedData'
 import { fetcher } from '@/utils/fetcher'
 
 import { CardRepo } from './card-repo'
