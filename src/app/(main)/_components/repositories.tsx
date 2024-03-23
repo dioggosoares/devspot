@@ -95,7 +95,7 @@ export function Repositories({ username }: RepositoriesProps) {
             username={username}
           />
           <div
-            className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/2
+            className="pointer-events-none fixed bottom-0 left-0 right-0 z-20 h-1/3
             bg-gradient-to-t from-base-800 to-base-800/0"
           />
         </>

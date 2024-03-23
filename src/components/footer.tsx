@@ -1,6 +1,9 @@
 export function Footer() {
   return (
-    <footer className="fixed bottom-0 w-full border-t border-brand-blue/40 bg-base-700 p-1">
+    <footer
+      className="fixed bottom-0 z-30 w-full border-t border-brand-blue/40
+      bg-base-700 p-1"
+    >
       <div
         className="mx-auto flex w-full items-center justify-center
         md:max-w-screen-2xl"

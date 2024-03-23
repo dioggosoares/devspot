@@ -25,6 +25,10 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        '3xl': '160rem',
+        '4xl': '240rem',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

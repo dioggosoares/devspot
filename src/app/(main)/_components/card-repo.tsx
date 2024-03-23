@@ -32,8 +32,8 @@ interface CardRepoProps {
 export function CardRepo({ repositories, username }: CardRepoProps) {
   return (
     <div
-      className="grid max-h-[32rem] grid-cols-1 gap-2 overflow-y-auto pb-7 pr-3
-      md:grid-cols-2 lg:grid-cols-3"
+      className="grid max-h-[32rem] grid-cols-1 gap-2 overflow-y-auto pb-7
+      pr-3 md:grid-cols-2 lg:grid-cols-3 3xl:max-h-[48rem] 4xl:max-h-[67.5rem]"
     >
       {repositories?.map((item) => {
         return (
