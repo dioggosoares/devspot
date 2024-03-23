@@ -1,10 +1,9 @@
-'use client'
+import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
-import { useQuery } from '@tanstack/react-query'
-
-import { Repo } from '@/@types/repo'
-import { EXTERNAL_URL } from '@/constants/general'
-import { fetcher } from '@/utils/fetcher'
+import { CardRepoDetails } from '@/app/(main)/_components/card-repo-details'
+import { Profile } from '@/app/(main)/_components/profile'
+import { Button } from '@/components/ui/button'
 
 interface RepositoryProps {
   params: {
@@ -14,19 +13,25 @@ interface RepositoryProps {
 }
 
 export default function RepositoryPage({ params }: RepositoryProps) {
-  const url =
-    EXTERNAL_URL.GITHUB_REPOS + `${params.userName}/${params.repoName}`
-
-  const { data: repoData, isLoading: isLoadingRepo } = useQuery<Repo[]>({
-    queryKey: ['repo'],
-    queryFn: () => fetcher(url),
-  })
-
-  console.log(repoData)
-
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-10 py-2">
-      Repos
+    <div className="mx-auto flex w-full max-w-3xl flex-col py-2">
+      <div className="flex w-full flex-col gap-6 px-6 lg:px-0">
+        <Profile username={params.userName} />
+      </div>
+      <div className="flex justify-end px-6 py-2 lg:px-0">
+        <Button variant="ghost" size="sm" asChild>
+          <Link href={`/${params.userName}`}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            <span className="text-sm font-semibold">Voltar</span>
+          </Link>
+        </Button>
+      </div>
+      <div className="px-6 lg:px-0">
+        <CardRepoDetails
+          username={params.userName}
+          reponame={params.repoName}
+        />
+      </div>
     </div>
   )
 }

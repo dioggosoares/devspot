@@ -18,6 +18,7 @@
         "ignoreRestSiblings": true
       }
     ],
+    "camelcase": "off",
     "no-useless-return": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "prefer-regex-literals": "off",

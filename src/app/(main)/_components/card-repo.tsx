@@ -89,7 +89,7 @@ export function CardRepo({ repositories, username }: CardRepoProps) {
             <CardFooter className="p-3">
               <div className="flex w-full items-center justify-between font-sans">
                 <span className="pl-3 text-sm text-zinc-50">
-                  Lang:{' '}
+                  lang:{' '}
                   <span
                     className={cn('text-sm font-bold', {
                       'text-zinc-400/50': item.language === null,

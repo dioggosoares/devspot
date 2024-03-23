@@ -1,5 +1,5 @@
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
-import { GitFork, Users } from 'lucide-react'
+import { Code, GitFork, Users } from 'lucide-react'
 import Link from 'next/link'
 
 import { User } from '@/@types/user'
@@ -70,7 +70,7 @@ export function ProfileStats({ profileData }: ProfileStats) {
       </div>
 
       <div className="flex items-center gap-2">
-        <GitFork className="h-4 w-4" />
+        <Code className="h-4 w-4" />
         <span className="text-xs lg:text-sm">
           <span className="font-bold">
             {profileData.public_repos > LIMITS.REPOS ? (
