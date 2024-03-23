@@ -26,9 +26,10 @@ import { shortenString } from '@/utils/shortenString'
 
 interface CardRepoProps {
   repositories: Repo[]
+  username: string
 }
 
-export function CardRepo({ repositories }: CardRepoProps) {
+export function CardRepo({ repositories, username }: CardRepoProps) {
   return (
     <div
       className="grid max-h-[32rem] grid-cols-1 gap-2 overflow-y-auto pb-7 pr-3
@@ -110,7 +111,7 @@ export function CardRepo({ repositories }: CardRepoProps) {
                   size="sm"
                   asChild
                 >
-                  <Link href={`/repo/dioggosoares/${item.name}`}>Ver mais</Link>
+                  <Link href={`/repo/${username}/${item.name}`}>Ver mais</Link>
                 </Button>
               </div>
             </CardFooter>
