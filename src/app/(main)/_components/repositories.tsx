@@ -66,7 +66,7 @@ export function Repositories({ username }: RepositoriesProps) {
                 render={({ field: { name, value } }) => {
                   return (
                     <Select
-                      defaultValue="desc"
+                      defaultValue={sortOrder}
                       name={name}
                       value={value}
                       onValueChange={(value) => {
@@ -75,7 +75,7 @@ export function Repositories({ username }: RepositoriesProps) {
                     >
                       <SelectTrigger
                         className="col-span-2 h-8 w-auto border-brand-blue/40
-                    bg-field-900 text-xs ring-offset-brand-blue md:text-base lg:w-[11.25rem]"
+                      bg-field-900 text-xs ring-offset-brand-blue md:text-base lg:w-[11.25rem]"
                       >
                         <SelectValue placeholder="Qtd. de estrelas" />
                       </SelectTrigger>
