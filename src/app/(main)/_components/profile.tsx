@@ -32,7 +32,7 @@ export function Profile({ username }: ProfileProps) {
   const url = EXTERNAL_URL.GITHUB_USER + username
 
   const { data: profileData, isLoading: isLoadingProfile } = useQuery<User>({
-    queryKey: ['profile'],
+    queryKey: [`profile-${username}`],
     queryFn: () => fetcher(url),
   })
 

@@ -35,7 +35,7 @@ export function Repositories({ username }: RepositoriesProps) {
   })
 
   const { data: reposData, isLoading: isLoadingRepos } = useQuery<Repo[]>({
-    queryKey: ['repos'],
+    queryKey: [`repos-${username}`],
     queryFn: () => fetcher(url),
   })
 

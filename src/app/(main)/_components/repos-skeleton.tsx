@@ -4,8 +4,8 @@ export function ReposSkeleton() {
   return (
     <>
       <div className="flex w-full items-center justify-between">
-        <Skeleton className="h-6 w-28 bg-neutral-200/60" />
-        <Skeleton className="h-6 w-48 bg-neutral-200/60 md:w-64" />
+        <Skeleton className="h-6 w-28 bg-base-400/60" />
+        <Skeleton className="h-6 w-48 bg-base-400/60 md:w-64" />
       </div>
 
       <div
@@ -21,16 +21,16 @@ export function ReposSkeleton() {
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-3 p-6">
                   <div className="flex w-full items-center justify-between">
-                    <Skeleton className="h-4 w-32 bg-neutral-200/60" />
-                    <Skeleton className="h-4 w-12 bg-neutral-200/60" />
+                    <Skeleton className="h-4 w-32 bg-base-400/60" />
+                    <Skeleton className="h-4 w-12 bg-base-400/60" />
                   </div>
 
-                  <Skeleton className="min-h-20 w-72 bg-neutral-200/60 lg:w-48" />
+                  <Skeleton className="min-h-20 w-72 bg-base-400/60 lg:w-48" />
                 </div>
 
                 <div className="flex w-full items-center justify-between px-6">
-                  <Skeleton className="h-4 w-32 bg-neutral-200/60" />
-                  <Skeleton className="h-4 w-12 bg-neutral-200/60" />
+                  <Skeleton className="h-4 w-32 bg-base-400/60" />
+                  <Skeleton className="h-4 w-12 bg-base-400/60" />
                 </div>
               </div>
             </div>
