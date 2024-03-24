@@ -12,6 +12,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'DevSpot',
   description: 'O melhor lugar para os GithubStars',
+  icons: {
+    icon: [
+      {
+        media: '(prefers-color-scheme: light)',
+        url: '/icon.svg',
+        href: '/icon.svg',
+      },
+      {
+        media: '(prefers-color-scheme: dark)',
+        url: '/icon.svg',
+        href: '/icon.svg',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
