@@ -6,7 +6,7 @@ export enum LIMITS {
   FORKS = 10000,
   STARS = 10000,
   TITLE_CHARS = 10,
-  BIO_CHARS = 28,
+  BIO_CHARS = 25,
 }
 
 export enum EXTERNAL_URL {

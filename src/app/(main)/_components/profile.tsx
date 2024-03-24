@@ -68,16 +68,18 @@ export function Profile({ username }: ProfileProps) {
                     </Button>
                   </div>
 
-                  <p className="text-xs md:text-sm">
+                  <div className="text-xs md:text-sm">
                     {isMobile
                       ? profileData.bio.length > LIMITS.BIO_CHARS && (
                           <TooltipProvider>
                             <Tooltip>
                               <TooltipTrigger className="cursor-default">
-                                {shortenString(
-                                  profileData.bio,
-                                  LIMITS.BIO_CHARS,
-                                )}
+                                <p className="!text-left text-xs md:text-sm">
+                                  {shortenString(
+                                    profileData.bio,
+                                    LIMITS.BIO_CHARS,
+                                  )}
+                                </p>
                               </TooltipTrigger>
                               <TooltipContent className="max-w-96">
                                 {profileData.bio}
@@ -86,7 +88,7 @@ export function Profile({ username }: ProfileProps) {
                           </TooltipProvider>
                         )
                       : profileData.bio}
-                  </p>
+                  </div>
                 </div>
 
                 <div className="hidden md:flex">
