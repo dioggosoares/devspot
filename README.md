@@ -7,9 +7,35 @@
 
 Projeto desenvolvido para o desafio técnico do processo seletivo da CodeGroup., feito com ReactJS, NextJS, Tailwind
 
+## Instalação local do projeto
+
+Necessário ter o NodeJS 19 ou maior, recomendo versão LTS - [NodeJS](https://nodejs.org/en)
+
+#### Instalar as dependências
+```typescript
+  pnpm i
+```
+
+#### Rodando o projeto
+```typescript
+  pnpm run dev
+```
+
+#### Build do projeto e rodando versão buildada
+```typescript
+  pnpm run build
+```
+```typescript
+  pnpm run start
+```
+
+#### Acessando o projeto localmente
+
+Coloque na barra de endereço a url, [DevSpot - http://localhost:3000](http://localhost:3000)
+
 ## 🌎 Versão Ao Vivo
 
-[![vercel](https://img.shields.io/badge/vercel-000?style=for-the-badge&logo=vercel&logoColor=white)](https://o3news.vercel.app/)
+[![vercel](https://img.shields.io/badge/vercel-000?style=for-the-badge&logo=vercel&logoColor=white)](https://devspot.vercel.app/)
 
 ## 🛠 Technologies
 
