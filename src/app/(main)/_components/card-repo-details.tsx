@@ -42,7 +42,7 @@ export function CardRepoDetails({ username, reponame }: CardRepoDetails) {
   const urlRepo = EXTERNAL_URL.GITHUB_REPOS + `${username}/${reponame}`
 
   const { data: repoData, isLoading: isLoadingRepo } = useQuery<RepoDetails>({
-    queryKey: ['repo'],
+    queryKey: [`repo-${reponame}`],
     queryFn: () => fetcher(urlRepo),
   })
 
