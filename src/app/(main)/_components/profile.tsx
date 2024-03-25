@@ -45,7 +45,7 @@ export function Profile({ username }: ProfileProps) {
       ) : (
         <div className="flex w-full flex-col gap-3">
           <div className="flex h-32 w-full rounded-lg bg-base-700 px-10 py-6 md:h-48 md:py-7">
-            <div className="flex w-full  items-start gap-3 md:flex-row md:items-center md:gap-8">
+            <div className="flex w-full items-start gap-3 md:flex-row md:items-center md:gap-8">
               <Image
                 src={profileData.avatar_url || ''}
                 alt="github avatar"

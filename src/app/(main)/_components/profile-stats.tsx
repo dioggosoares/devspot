@@ -18,7 +18,7 @@ interface ProfileStats {
 
 export function ProfileStats({ profileData }: ProfileStats) {
   return (
-    <div className="flex w-full flex-col gap-4 md:flex-row md:gap-6">
+    <div className="flex w-full flex-col gap-4 text-sm md:flex-row">
       <div className="flex items-center gap-2">
         <GitHubLogoIcon />
         <Link href={profileData.html_url || ''} target="_blank">

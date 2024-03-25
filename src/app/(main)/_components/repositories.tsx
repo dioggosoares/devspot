@@ -58,35 +58,37 @@ export function Repositories({ username }: RepositoriesProps) {
               Repositórios
             </h1>
 
-            <div className="flex items-center gap-2">
-              <span className="text-sm md:text-base">Ordenação:</span>
-              <Controller
-                name="amountStars"
-                control={control}
-                render={({ field: { name, value } }) => {
-                  return (
-                    <Select
-                      defaultValue={sortOrder}
-                      name={name}
-                      value={value}
-                      onValueChange={(value) => {
-                        setSortOrder(value)
-                      }}
-                    >
-                      <SelectTrigger
-                        className="col-span-2 h-8 w-auto border-brand-blue/40
-                      bg-field-900 text-xs ring-offset-brand-blue md:text-base lg:w-[11.25rem]"
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <span className="text-sm md:text-base">Ordenação:</span>
+                <Controller
+                  name="amountStars"
+                  control={control}
+                  render={({ field: { name, value } }) => {
+                    return (
+                      <Select
+                        defaultValue={sortOrder}
+                        name={name}
+                        value={value}
+                        onValueChange={(value) => {
+                          setSortOrder(value)
+                        }}
                       >
-                        <SelectValue placeholder="Qtd. de estrelas" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="asc">Crescente</SelectItem>
-                        <SelectItem value="desc">Decrescente</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  )
-                }}
-              />
+                        <SelectTrigger
+                          className="col-span-2 h-8 w-auto border-brand-blue/40
+                      bg-field-900 text-xs ring-offset-brand-blue md:text-base lg:w-[11.25rem]"
+                        >
+                          <SelectValue placeholder="Qtd. de estrelas" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="asc">Crescente</SelectItem>
+                          <SelectItem value="desc">Decrescente</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )
+                  }}
+                />
+              </div>
             </div>
           </div>
 

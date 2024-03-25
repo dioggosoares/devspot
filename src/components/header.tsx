@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header className="flex w-full bg-base-600">
       <div
-        className="relative flex h-64 w-full items-center justify-center
+        className="relative flex h-[14rem] w-full items-center justify-center
       bg-base-600 bg-grid-small-white/[0.1]"
       >
         <div
