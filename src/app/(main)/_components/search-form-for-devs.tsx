@@ -1,7 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { redirect, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -17,11 +17,7 @@ type SearchForDevFormSchema = z.infer<typeof searchForDevFormSchema>
 export function SearchFormForDevs() {
   const router = useRouter()
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<SearchForDevFormSchema>({
+  const { register, handleSubmit } = useForm<SearchForDevFormSchema>({
     resolver: zodResolver(searchForDevFormSchema),
   })
 
