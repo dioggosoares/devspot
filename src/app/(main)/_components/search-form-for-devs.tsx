@@ -31,7 +31,8 @@ export function SearchFormForDevs() {
       className="flex w-full items-center gap-3"
     >
       <Input placeholder="Buscar desenvolvedores..." {...register('name')} />
-      <Button type="submit" variant="brand">
+
+      <Button type="submit" variant="brand" size="sm">
         Buscar
       </Button>
     </form>
