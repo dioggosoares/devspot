@@ -54,7 +54,7 @@ export function Repositories({ username }: RepositoriesProps) {
       ) : (
         <>
           <div className="flex w-full items-center justify-between">
-            <h1 className="text-sm font-semibold text-brand-blue md:text-lg">
+            <h1 className="text-brand-blue text-sm font-semibold md:text-lg">
               Repositórios
             </h1>
 
@@ -75,8 +75,8 @@ export function Repositories({ username }: RepositoriesProps) {
                         }}
                       >
                         <SelectTrigger
-                          className="col-span-2 h-8 w-auto border-brand-blue/40
-                      bg-field-900 text-xs ring-offset-brand-blue md:text-base lg:w-[11.25rem]"
+                          className="border-brand-blue/40 bg-field-900 ring-offset-brand-blue col-span-2
+                      h-8 w-auto text-xs md:text-base lg:w-[11.25rem]"
                         >
                           <SelectValue placeholder="Qtd. de estrelas" />
                         </SelectTrigger>
@@ -97,8 +97,8 @@ export function Repositories({ username }: RepositoriesProps) {
             username={username}
           />
           <div
-            className="pointer-events-none fixed bottom-0 left-0 right-0 z-20 h-1/3
-            bg-gradient-to-t from-base-800 to-base-800/0"
+            className="bg-linear-to-t from-base-800 to-base-800/0 pointer-events-none fixed bottom-0 left-0
+            right-0 z-20 h-1/3"
           />
         </>
       )}

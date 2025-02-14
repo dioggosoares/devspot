@@ -1,12 +1,12 @@
 export function Footer() {
   return (
     <footer
-      className="fixed bottom-0 z-30 w-full border-t border-brand-blue/40
-      bg-base-700 p-1"
+      className="border-brand-blue/40 bg-base-700 fixed bottom-0 z-30 w-full
+      border-t p-1"
     >
       <div
-        className="mx-auto flex w-full items-center justify-center
-        md:max-w-screen-2xl"
+        className="md:max-w-(--breakpoint-2xl) mx-auto flex w-full items-center
+        justify-center"
       >
         <div
           className="flex w-full items-center justify-between space-x-4 text-xs

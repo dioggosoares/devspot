@@ -44,7 +44,7 @@ export function Profile({ username }: ProfileProps) {
         <ProfileSkeleton />
       ) : (
         <div className="flex w-full flex-col gap-3">
-          <div className="flex h-32 w-full rounded-lg bg-base-700 px-10 py-6 md:h-48 md:py-7">
+          <div className="bg-base-700 flex h-32 w-full rounded-lg px-10 py-6 md:h-48 md:py-7">
             <div className="flex w-full items-start gap-3 md:flex-row md:items-center md:gap-8">
               <Image
                 src={profileData.avatar_url || ''}
@@ -74,7 +74,7 @@ export function Profile({ username }: ProfileProps) {
                           <TooltipProvider>
                             <Tooltip>
                               <TooltipTrigger className="cursor-default">
-                                <p className="!text-left text-xs md:text-sm">
+                                <p className="text-left! text-xs md:text-sm">
                                   {shortenString(
                                     profileData.bio,
                                     LIMITS.BIO_CHARS,
@@ -97,7 +97,7 @@ export function Profile({ username }: ProfileProps) {
               </div>
             </div>
           </div>
-          <div className="flex w-full rounded-lg bg-base-700 px-7 py-4 md:hidden">
+          <div className="bg-base-700 flex w-full rounded-lg px-7 py-4 md:hidden">
             <ProfileStats profileData={profileData} />
           </div>
         </div>

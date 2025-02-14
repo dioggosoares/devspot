@@ -34,17 +34,17 @@
   },
   "devDependencies": {
     "@primittive/eslint-config": "^1.0.6",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "postcss": "^8",
     "prettier": "2.8.8",
-    "prettier-plugin-tailwindcss": "0.4.1",
-    "tailwindcss": "^3.3.0",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
 }
